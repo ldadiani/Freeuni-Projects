@@ -1,0 +1,14 @@
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:23 +0400] "GET / HTTP/1.1" 200 483 http-bio-8080-exec-2 472
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:23 +0400] "GET /favicon.ico HTTP/1.1" 200 483 http-bio-8080-exec-3 1
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:24 +0400] "GET /create HTTP/1.1" 200 503 http-bio-8080-exec-4 45
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:24 +0400] "GET /favicon.ico HTTP/1.1" 200 483 http-bio-8080-exec-6 1
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:28 +0400] "POST /create HTTP/1.1" 200 480 http-bio-8080-exec-7 61
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:28 +0400] "GET /favicon.ico HTTP/1.1" 200 483 http-bio-8080-exec-8 4
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:31 +0400] "POST /create HTTP/1.1" 200 480 http-bio-8080-exec-9 2
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:31 +0400] "GET /favicon.ico HTTP/1.1" 200 483 http-bio-8080-exec-10 1
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:34 +0400] "POST /create HTTP/1.1" 200 480 http-bio-8080-exec-2 2
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:34 +0400] "GET /favicon.ico HTTP/1.1" 200 483 http-bio-8080-exec-2 1
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:39 +0400] "POST /create HTTP/1.1" 200 478 http-bio-8080-exec-2 2
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:39 +0400] "GET /favicon.ico HTTP/1.1" 200 483 http-bio-8080-exec-2 1
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:41 +0400] "POST /create HTTP/1.1" 200 116 http-bio-8080-exec-2 53
+0:0:0:0:0:0:0:1 - - [30/Jun/2021:21:54:41 +0400] "GET /favicon.ico HTTP/1.1" 200 483 http-bio-8080-exec-2 1
