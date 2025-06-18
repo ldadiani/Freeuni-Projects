@@ -1,0 +1,2 @@
+# NameSurfer
+This program uses the tools necessary to build an impressive piece of software to explore interesting data sets. The NameSurfer is a program that displays the popularity of baby names over the course of the past century. This program helped me learn more about object-oriented design and end up with software that can take data and make it come to life. The database counts children born in the United States, so trends in particular names tend to reflect the evolution of ethnic communities over the years.
