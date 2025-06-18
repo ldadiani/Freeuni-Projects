@@ -1,0 +1,21 @@
+-- n1
+
+SELECT e.first_name || ' - ' || e.last_name || ',' AS "F and L",
+       NVL(d.department_name, 'X') AS "Department",
+       m.first_name AS "Manager",
+       TO_CHAR(e.salary, '$999,999.00') AS "Salary",
+       mm.first_name AS "Managers Manager",
+       mm.salary AS "Managers Manager Salary"
+FROM   employees e
+       LEFT JOIN departments d
+              ON e.department_id = d.department_id
+       LEFT JOIN employees m
+              ON e.manager_id = m.employee_id
+       LEFT JOIN employees mm
+              ON m.manager_id = mm.employee_id
+WHERE  INSTR(mm.first_name, 'a') > 0
+       AND MOD(mm.salary, 17) = 0;
+
+
+
+

@@ -1,0 +1,20 @@
+-- n2
+
+SELECT e.first_name || ' ' || e.last_name AS full_name,
+       TO_CHAR(e.salary, '$999,999,999.99') AS salary,
+       COALESCE(SUBSTR(e.email, 1, INSTR(e.email, '@') - 1), 'INVALID MAIL') AS Mail,
+       salary * TRUNC(MONTHS_BETWEEN(SYSDATE,
+        CASE 
+            WHEN hire_date >= TO_DATE('01-JAN-' || TO_CHAR(SYSDATE, 'YYYY'), 'DD-MON-YYYY') 
+            THEN hire_date 
+            ELSE TO_DATE('01-JAN-' || TO_CHAR(SYSDATE, 'YYYY'), 'DD-MON-YYYY') 
+        END
+        )) as "Salary this year",
+       COALESCE(TO_CHAR(e.commission_pct), 'No Com') AS commission
+FROM employees e
+WHERE (department_id = 50 OR MONTHS_BETWEEN(SYSDATE, hire_date) >= 60) 
+      AND e.phone_number LIKE '515%'
+      AND e.job_id NOT IN ('IT_PROG', 'PU_CLERK')
+      AND e.salary BETWEEN 5000 AND 10000
+      AND e.manager_id IS NOT NULL
+ORDER BY e.salary DESC, e.hire_date ASC;

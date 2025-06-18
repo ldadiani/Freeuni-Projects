@@ -1,0 +1,26 @@
+-- n3
+
+SELECT 
+  SUBSTR(job_id, 1, INSTR(job_id, '_', 1, 1) - 1) AS pref,
+  COUNT(*) AS count,
+  CASE COUNT(job_id)
+    WHEN 0 THEN 'N'
+      ELSE 'Y'
+  END yn,
+  ROUND(AVG(CASE 
+             WHEN salary IS NULL THEN NULL 
+             ELSE salary 
+           END), 2) AS avg_salary,
+  SUM(CASE 
+        WHEN hire_date < TO_DATE('01-JAN-2003', 'DD-MON-YYYY') AND  hire_date >= TO_DATE('01-JAN-2002', 'DD-MON-YYYY') THEN 1 
+        ELSE 0 
+      END) AS cnt_2002
+FROM employees
+GROUP BY SUBSTR(job_id, 1, INSTR(job_id, '_', 1, 1) - 1)
+ORDER BY 
+  CASE 
+    WHEN pref = 'IT' THEN 1 
+    WHEN pref = 'MK' THEN 2 
+    ELSE 3 
+  END,
+  avg_salary DESC;

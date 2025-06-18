@@ -1,0 +1,23 @@
+select
+    j.job_id as job_id,
+    j.job_title as name,
+    CASE WHEN COUNT(CASE WHEN MOD(employee_id, 2) = 1 THEN 1 END) > 0
+         THEN TO_CHAR(COUNT(CASE WHEN MOD(employee_id, 2) = 1 THEN 1 END))
+         ELSE 'N/A'
+    END AS emp_cnt,
+    CASE WHEN AVG(CASE WHEN MOD(employee_id, 2) = 0 THEN salary END) <> 0
+         THEN TO_CHAR(AVG(CASE WHEN MOD(employee_id, 2) = 0 THEN salary END))
+         ELSE 'N/A'
+    END AS avg_sal,
+    (SELECT COUNT(*) FROM employees e where e.salary = (select MAX(e2.SALARY) from employees e2)) mx_cnt
+
+from jobs j
+    left join EMPLOYEES E on j.JOB_ID = E.JOB_ID
+where length(j.JOB_ID) >= 4
+  and ((select Max(j1.MAX_SALARY - j1.MIN_SALARY)  from jobs j1) <> j.MAX_SALARY - j.MIN_SALARY)
+group by j.job_id, j.job_title
+order by case
+             when substr(j.JOB_ID, 1, 2) = 'IT' then 0
+             else 1 end,
+         JOB_ID asc
+;
